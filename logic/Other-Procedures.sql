@@ -167,11 +167,11 @@ BEGIN
 END $$
 DELIMITER ;
 
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -- | RM8. Filtrar viagens pela localização das paragens.
 DELIMITER $$
-CREATE PROCEDURE FiltrarViagensPorLocalização (IN p_país VARCHAR(50), IN p_cidade VARCHAR(50))
+CREATE PROCEDURE FiltrarViagensPorLocalização (IN p_país VARCHAR(50), IN p_cidade VARCHAR(50))  -- Como é procedimento permite que um dos argumentos seja NULL. Algo que não acontece numa instrução preparada.
 BEGIN
 	SELECT DISTINCT V.* FROM Viagem AS V
 		INNER JOIN Paragem AS P ON V.ID = P.Viagem
