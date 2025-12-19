@@ -39,8 +39,8 @@ Paralelamente à modelação de dados, a arquitetura de segurança do sistema im
 
 Em termos de organização física, a arquitetura do repositório promove a modularidade e a escalabilidade, encontrando-se segmentada em dois diretórios principais, sendo estes os seguintes.
 
-1. **`src`**: Funciona como o núcleo estrutural, centralizando a definição de tabelas e restrições.
+1. **`schema`**: Funciona como o núcleo estrutural, centralizando a definição de tabelas e restrições.
   
-2. **`adv`**: Integra a camada de lógica de negócio, abrangendo procedimentos armazenados, vistas, índices e o conjunto de interrogações necessárias para satisfazer os requisitos funcionais.
+2. **`logic`**: Integra a camada de lógica de negócio, abrangendo procedimentos armazenados, vistas, índices e o conjunto de interrogações necessárias para satisfazer os requisitos funcionais.
 
 Made with ❤️ by Diogo Azevedo, Bruno Magalhães, Simão Santos & Vera Almeida
