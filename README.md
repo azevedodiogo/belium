@@ -1,94 +1,41 @@
-# BeLIUM Viagens 🌍
 
-O **BeLIUM Viagens** é um sistema de base de dados relacional desenvolvido para o **CeSIUM** (Centro de Estudantes de Engenharia Informática da Universidade do Minho). O projeto surge da necessidade de centralizar e preservar a memória histórica e operacional das viagens organizadas pelo núcleo, combatendo a dispersão de informação por canais informais e documentos isolados.
+# BeLIUM Viagens
 
-## 📋 Sobre o Projeto
+Este repositório foi concebido para o projeto ‘BeLIUM Viagens’, desenvolvido no âmbito da unidade curricular “Base de Dados”, lecionada no segundo ano da Licenciatura em Engenharia Informática.  Trata-se de um projeto académico com um contexto de natureza fictícia.
 
-Este sistema foi desenhado para documentar o portfólio de viagens do CeSIUM, servindo como uma ferramenta estratégica para o planeamento de futuras atividades pedagógicas, gestão de parcerias e fortalecimento do networking entre estudantes e alumni.
+O desígnio primordial deste sistema reside na centralização, organização e preservação do registo histórico das viagens e iniciativas pedagógicas promovidas pelo CeSIUM (Centro de Estudantes de Engenharia Informática da Universidade do Minho). Identificou-se que, não obstante o vasto património de atividades realizadas por diversas gerações, a informação encontrava-se dispersa por canais informais e documentos isolados, comprometendo a memória institucional e dificultando o planeamento estratégico de eventos futuros.
 
-A arquitetura do sistema seguiu rigorosamente o ciclo de vida de desenvolvimento de bases de dados:
-* **Modelação Conceptual:** Diagramas Entidade-Relacionamento (ER).
-* **Modelação Lógica:** Normalização até à Terceira Forma Normal (3FN).
-* **Implementação Física:** MySQL com motor InnoDB para suporte a transações e integridade referencial.
+Neste contexto, o sistema surge como uma solução estruturada para mitigar a fragmentação de dados. Ao implementar um repositório centralizado, o projeto visa facilitar a tomada de decisão sobre destinos e orçamentos, otimizar recursos e, fundamentalmente, criar um portfólio público que perpetue a cultura e as experiências da comunidade académica e da sua comunidade *alumni*.
 
-A arquitetura do sistema seguiu rigorosamente o ciclo de vida de desenvolvimento de bases de dados:
+A arquitetura do sistema foi meticulosamente desenhada em estrita conformidade com o ciclo de vida de desenvolvimento de uma base de dados. O processo iniciou-se com a modelação conceptual, recorrendo à ferramenta *brModelo* para a construção de Diagramas Entidade-Relacionamento (ER), permitindo uma representação visual clara das entidades e das suas interdependências.
 
-* **Modelação Conceptual:** Diagramas Entidade-Relacionamento (ER).
-![Diagrama Entidade-Relacionamento](docs/er_diagram.png)
+Na fase subsequente de modelação lógica, efetuada no *MySQL Workbench*, a estrutura foi refinada através de processos rigorosos de normalização até à Terceira Forma Normal (3FN). Este procedimento garantiu a integridade referencial dos dados e a eliminação de redundâncias. A validação teórica das interrogações e da estrutura relacional foi assegurada através de Álgebra Relacional, com recurso à calculadora *RelaX*. A concretização física do projeto materializou-se no Sistema de Gestão de Bases de Dados MySQL.
 
-* **Modelação Lógica:** Normalização até à Terceira Forma Normal (3FN).
-![Esquema Lógico](docs/logical_schema.png)
 
-## 🚀 Funcionalidades Principais
+<table border="0">
+ <tr>
+    <td align="center" width="50%">
+       <img src="./docs/er_diagram.png" alt="Diagrama ER" width="100%">
+       <br>
+       <b>Figura 1:</b> Diagrama Entidade-Relacionamento (ER)
+    </td>
+    <td align="center" width="50%">
+       <img src="./docs/logical_schema.png" alt="Esquema Lógico" width="100%">
+       <br>
+       <b>Figura 2:</b> Esquema Lógico Relacional (MySQL)
+    </td>
+ </tr>
+</table>
 
-* **Arquivo Histórico:** Registo detalhado de destinos, datas e participantes.
-* **Gestão Financeira:** Monitorização de orçamentos e patrocínios associados a cada viagem.
-* **Interatividade:** Sistema de avaliações, comentários e reações (Likes) por parte dos sócios.
-* **Documentação Multimédia:** Associação de fotografias a paragens específicas de cada itinerário.
-* **Segurança (RBAC):** Controlo de acesso baseado em perfis (Administrador, Sócio e Utilizador).
 
-## 🛠️ Tecnologias Utilizadas
+O sistema implementa uma hierarquia de privilégios robusta, estruturada em três níveis de acesso distintos, com o objetivo de assegurar a segurança e a correta gestão da informação.
 
-* **SGBD:** MySQL
-* **Modelação:** brModelo (Conceptual) e MySQL Workbench (Lógico)
-* **Validação:** Álgebra Relacional (Calculadora RelaX)
+1. **Administração:** Este perfil confere controlo integral sobre a plataforma, responsabilizando-se pela gestão de utilizadores, manutenção da base de dados e supervisão de aspetos financeiros, incluindo a gestão de patrocínios.
 
-## 📂 Estrutura do Repositório
+2. **Sócio:** Destinado aos membros do núcleo, este perfil permite a criação e gestão de conteúdos.  Os sócios têm a possibilidade de registar novas viagens, definir itinerários, carregar registos fotográficos e atribuir feedback às atividades.
 
-O código está organizado para facilitar a manutenção e a implementação modular:
+3. **Utilizador:** Este perfil oferece acesso público ou geral, com permissões restritas à consulta de informação e interação básica através de reações às viagens publicadas.
 
-```text
-├── src/
-│   ├── Database_Life_Cycle.sql  # Criação do Schema e gestão inicial
-│   ├── Create_Tables.sql       # Definição das tabelas e restrições
-│   ├── Create_Users.sql        # Configuração de utilizadores e privilégios
-│   ├── Drop_Tables.sql         # Scripts para eliminar tabelas
-│   └── Drop_Users.sql          # Scripts para remover utilizadores
-├── adv/
-│   ├── Procedures_Insert.sql   # Povoamento da BD através de procedimentos
-│   ├── Procedures.sql          # Lógica de negócio e autenticação
-│   ├── Vistas.sql              # Vistas para estatísticas e listagens
-│   ├── Index.sql               # Otimização de desempenho (Índices)
-│   ├── Queries.sql             # Interrogações de manipulação de dados
-│   └── RM_Solutions.sql        # Resoluções dos requisitos de manipulação
-└── README.md
+A infraestrutura tecnológica do projeto alicerça-se no MySQL enquanto motor da base de dados, complementado por ferramentas de modelação (_brModelo_ e *MySQL Workbench*) e validação teórica (*Calculadora RelaX*).
 
-```
-
-## ⚙️ Instalação e Configuração
-
-Para instanciar a base de dados localmente, execute os seguintes comandos no seu cliente MySQL (garanta que está na raiz do projeto):
-
-```sql
--- Estrutura e Tabelas
-SOURCE src/Database_Life_Cycle.sql;
-SOURCE src/Create_Tables.sql;
-
--- Segurança e Utilizadores
-SOURCE src/Create_Users.sql;
-
--- Dados e Lógica Avançada
-SOURCE adv/Procedures_Insert.sql;
-SOURCE adv/Procedures.sql;
-SOURCE adv/Vistas.sql;
-SOURCE adv/Index.sql;
-```
-
-## 👥 Níveis de Acesso
-
-O sistema implementa três perfis distintos:
-
-* **Administrador:** Controlo total sobre o sistema, orçamentos e gestão de utilizadores.
-* **Sócio:** Pode registar novas viagens, adicionar paragens, fotos e interagir com o conteúdo.
-* **Utilizador:** Perfil de consulta com permissões limitadas a reações e visualização pública.
-
-## ✍️ Autores
-
-Projeto desenvolvido para a Unidade Curricular de **Bases de Dados** (2025/2026):
-
-* **Bruno Magalhães**
-* **Diogo Azevedo**
-* **Simão Santos**
-* **Vera Almeida**
-
-**Universidade do Minho** - Licenciatura em Engenharia Informática
+A estrutura do repositório foi desenhada para promover a modularidade e facilitar a manutenção contínua do código. O diretório `src` centraliza os componentes estruturais do ciclo de vida da base de dados, contendo os *scripts* essenciais para a criação do esquema, a definição das tabelas e restrições, bem como a gestão administrativa de utilizadores. Paralelamente, o diretório `adv` agrega a lógica de negócio avançada, incluindo procedimentos armazenados (*stored procedures*) para povoamento e autenticação, vistas (*views*) para análise estatística, índices para otimização de desempenho e o conjunto de interrogações (*queries*) de manipulação de dados.
