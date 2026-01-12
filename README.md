@@ -1,16 +1,14 @@
-
 # BeLIUM Viagens
 
 Este repositório foi concebido para o projeto ‘BeLIUM Viagens’, desenvolvido no âmbito da unidade curricular “Base de Dados”, lecionada no segundo ano da Licenciatura em Engenharia Informática.  Trata-se de um projeto académico com um contexto de natureza fictícia.
 
-O desígnio primordial deste sistema reside na centralização, organização e preservação do registo histórico das viagens e iniciativas pedagógicas promovidas pelo CeSIUM (Centro de Estudantes de Engenharia Informática da Universidade do Minho). Identificou-se que, não obstante o vasto património de atividades realizadas por diversas gerações, a informação encontrava-se dispersa por canais informais e documentos isolados, comprometendo a memória institucional e dificultando o planeamento estratégico de eventos futuros.
+O desígnio primordial deste sistema reside na centralização, organização e preservação do registo histórico das viagens e iniciativas pedagógicas promovidas pelo CeSIUM (Centro de Estudantes de Engenharia Informática da Universidade do Minho), uma vez que se identificou que, não obstante o vasto património de atividades realizadas por diversas gerações, a informação encontrava-se dispersa por canais informais, comprometendo a memória institucional e o planeamento estratégico. 
 
-Neste contexto, o sistema surge como uma solução estruturada para mitigar a fragmentação de dados. Ao implementar um repositório centralizado, o projeto visa facilitar a tomada de decisão sobre destinos e orçamentos, otimizar recursos e, fundamentalmente, criar um portfólio público que perpetue a cultura e as experiências da comunidade académica e da sua comunidade *alumni*.
+Nesse sentido, a solução surge como uma resposta estruturada para mitigar a fragmentação de dados, visando facilitar a tomada de decisão sobre destinos e orçamentos, otimizar recursos e criar um portfólio público que perpetue a cultura da comunidade académica e alumni.
 
-A arquitetura do sistema foi meticulosamente desenhada em estrita conformidade com o ciclo de vida de desenvolvimento de uma base de dados. O processo iniciou-se com a modelação conceptual, recorrendo à ferramenta *brModelo* para a construção de Diagramas Entidade-Relacionamento (ER), permitindo uma representação visual clara das entidades e das suas interdependências.
+## Arquitetura e Desenvolvimento
 
-Na fase subsequente de modelação lógica, efetuada no *MySQL Workbench*, a estrutura foi refinada através de processos rigorosos de normalização até à Terceira Forma Normal (3FN). Este procedimento garantiu a integridade referencial dos dados e a eliminação de redundâncias. A validação teórica das interrogações e da estrutura relacional foi assegurada através de Álgebra Relacional, com recurso à calculadora *RelaX*. A concretização física do projeto materializou-se no Sistema de Gestão de Bases de Dados MySQL.
-
+Para materializar estes objetivos, a arquitetura do sistema foi meticulosamente desenhada em estrita conformidade com o ciclo de vida de desenvolvimento de uma base de dados, iniciando-se o processo com a modelação conceptual através da ferramenta _brModelo_ para a construção de Diagramas Entidade-Relacionamento (ER). Subsequentemente, na fase de modelação lógica efetuada no _MySQL Workbench_, a estrutura foi refinada através de processos rigorosos de normalização até à Terceira Forma Normal (3FN), garantindo a integridade referencial e a eliminação de redundâncias, ao passo que a validação teórica das interrogações foi assegurada via Álgebra Relacional com recurso à calculadora _RelaX_.
 
 <table border="0">
  <tr>
@@ -27,15 +25,20 @@ Na fase subsequente de modelação lógica, efetuada no *MySQL Workbench*, a est
  </tr>
 </table>
 
+## Gestão de Permissões
 
-O sistema implementa uma hierarquia de privilégios robusta, estruturada em três níveis de acesso distintos, com o objetivo de assegurar a segurança e a correta gestão da informação.
+Paralelamente à modelação de dados, a arquitetura de segurança do sistema implementa um modelo rigoroso de controlo de acessos, estruturado numa hierarquia de privilégios de três níveis, desenhada para assegurar a integridade dos dados e a correta segregação de funções. 
 
-1. **Administração:** Este perfil confere controlo integral sobre a plataforma, responsabilizando-se pela gestão de utilizadores, manutenção da base de dados e supervisão de aspetos financeiros, incluindo a gestão de patrocínios.
+| Perfil | Nível | Responsabilidades |
+| :--- | :--- | :--- |
+| **Administração** | Total | Autoridade máxima sobre a plataforma. Compete-lhes a supervisão técnica integral, gestão de credenciais, manutenção da base de dados e administração financeira (controlo de orçamentos e patrocínios). |
+| **Sócio** | Operacional | Membros ativos do núcleo. Detêm privilégios de escrita para alimentação do sistema, sendo responsáveis pelo registo de viagens, definição de itinerários, carregamento de fotos e feedback qualitativo. |
+| **Utilizador** | Consulta | Camada de acesso público. A interação restringe-se à visualização do catálogo de viagens e interação social básica (reações), garantindo a proteção da estrutura de dados contra modificações não autorizadas. |
 
-2. **Sócio:** Destinado aos membros do núcleo, este perfil permite a criação e gestão de conteúdos.  Os sócios têm a possibilidade de registar novas viagens, definir itinerários, carregar registos fotográficos e atribuir feedback às atividades.
+## Estrutura de Ficheiros
 
-3. **Utilizador:** Este perfil oferece acesso público ou geral, com permissões restritas à consulta de informação e interação básica através de reações às viagens publicadas.
+Em termos de organização física, a arquitetura do repositório promove a modularidade e a escalabilidade, encontrando-se segmentada em dois diretórios principais, sendo estes os seguintes.
 
-A infraestrutura tecnológica do projeto alicerça-se no MySQL enquanto motor da base de dados, complementado por ferramentas de modelação (_brModelo_ e *MySQL Workbench*) e validação teórica (*Calculadora RelaX*).
-
-A estrutura do repositório foi desenhada para promover a modularidade e facilitar a manutenção contínua do código. O diretório `src` centraliza os componentes estruturais do ciclo de vida da base de dados, contendo os *scripts* essenciais para a criação do esquema, a definição das tabelas e restrições, bem como a gestão administrativa de utilizadores. Paralelamente, o diretório `adv` agrega a lógica de negócio avançada, incluindo procedimentos armazenados (*stored procedures*) para povoamento e autenticação, vistas (*views*) para análise estatística, índices para otimização de desempenho e o conjunto de interrogações (*queries*) de manipulação de dados.
+1. **`src`**: Funciona como o núcleo estrutural, centralizando a definição de tabelas e restrições.
+  
+2. **`adv`**: Integra a camada de lógica de negócio, abrangendo procedimentos armazenados, vistas, índices e o conjunto de interrogações necessárias para satisfazer os requisitos funcionais.
