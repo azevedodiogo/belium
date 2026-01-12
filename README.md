@@ -43,4 +43,4 @@ Em termos de organização física, a arquitetura do repositório promove a modu
   
 2. **`adv`**: Integra a camada de lógica de negócio, abrangendo procedimentos armazenados, vistas, índices e o conjunto de interrogações necessárias para satisfazer os requisitos funcionais.
 
-Made with ❤️ by Diogo Azevedo, Bruno Magalhães, Simão Santos & Vera da Silva Almeida
+Made with ❤️ by Diogo Azevedo, Bruno Magalhães, Simão Santos & Vera Almeida
