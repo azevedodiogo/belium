@@ -7,18 +7,18 @@ USE BeLIUM_Viagens;
 CREATE TABLE IF NOT EXISTS Utilizador (
 
 	-- | Define as colunas da tabela
-    ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    Nome VARCHAR(100) NOT NULL,
+    ID INT UNSIGNED NOT NULL AUTO_INCREMENT, -- UNSIGNED para evitar IDs negativos e AUTO_INCREMENT para gerar IDs automaticamente.
+    Nome VARCHAR(100) NOT NULL, 
     Telemóvel VARCHAR(13) NOT NULL,
-    Email VARCHAR(100) NOT NULL UNIQUE,
-    Pass_Word VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL UNIQUE, -- UNIQUE para garantir que cada email é único na tabela e facilitar procuras futuras. Ao ser UNIQUE um índice é criado automaticamente.
+    Pass_Word VARCHAR(100) NOT NULL,    -- Pass_Word para evitar conflito com a palavra reservada PASSWORD.
 
     -- | Define a chave primária
 	PRIMARY KEY (ID),
     
     -- | Define as restrições
-    CHECK (Telemóvel LIKE '+%'),
-    CHECK (Email LIKE '%@%.%')
+    CHECK (Telemóvel LIKE '+%'),   -- O CHECK garante que o telemóvel começa com '+'.
+    CHECK (Email LIKE '%@%.%')     -- O CHECK garante que o email tem um formato básico válido.
 );
 
 
@@ -30,16 +30,16 @@ CREATE TABLE IF NOT EXISTS Sócio (
     Utilizador INT UNSIGNED NOT NULL,
     Nr_Sócio INT UNSIGNED NOT NULL UNIQUE,
     Foto_Perfil VARCHAR(100) NULL,
-    Estatuto ENUM('Direção','Alumni') NULL,
+    Estatuto ENUM('Direção','Alumni') NULL, -- ENUM para limitar os valores possíveis.
     
     -- | Define a chave primária
     PRIMARY KEY (Utilizador),
     
     -- | Define a chave estranjeira
-    CONSTRAINT FK_Sócio_To_Utilizador FOREIGN KEY (Utilizador) REFERENCES Utilizador(ID),
+    CONSTRAINT FK_Sócio_To_Utilizador FOREIGN KEY (Utilizador) REFERENCES Utilizador(ID), -- CONSTRAINT para definir a chave estrangeira que referencia a tabela Utilizador.
     
     -- | Define a restrição
-    CHECK (Foto_Perfil IS NULL OR Foto_Perfil LIKE 'Imagens/%.png')
+    CHECK (Foto_Perfil IS NULL OR Foto_Perfil LIKE 'Imagens/%.png') -- O CHECK garante que a foto de perfil é nula ou tem o formato correto.
 );
 
 
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS Viagem (
     Nr_Paragens INT NOT NULL DEFAULT 0,
     Nr_Participantes INT NOT NULL,
     Custo DECIMAL(8,2) NOT NULL,
-    Objetivo ENUM('Pedagógico','Recreativo','Ambos') NOT NULL,
+    Objetivo ENUM('Pedagógico','Recreativo','Ambos') NOT NULL, -- ENUM para limitar os valores possíveis.
     
     -- | Define a chave primária
     PRIMARY KEY (ID),
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS Paragem (
     Data_Partida DATETIME NOT NULL,
     
     -- | Define a chave primária
-    PRIMARY KEY (Nr,Viagem),
+    PRIMARY KEY (Nr,Viagem), -- Chave primária composta por Nr e Viagem. Reforça o facto de a entidade 'Paragem' ser uma entidade fraca dependente de 'Viagem'.
     
     -- | Define a chave estranjeira
     CONSTRAINT FK_Paragem_To_Viagem FOREIGN KEY (Viagem) REFERENCES Viagem(ID),
