@@ -13,12 +13,12 @@ Para materializar estes objetivos, a arquitetura do sistema foi meticulosamente 
 <table border="0">
  <tr>
     <td align="center" width="50%">
-       <img src="./docs/er_diagram.png" alt="Diagrama ER" width="100%">
+       <img src="./docs/diagrams/er_diagram.png" alt="Diagrama ER" width="100%">
        <br>
        <b>Figura 1:</b> Diagrama Entidade-Relacionamento (ER)
     </td>
     <td align="center" width="50%">
-       <img src="./docs/logical_schema.png" alt="Esquema Lógico" width="100%">
+       <img src="./docs/diagrams/logical_schema.png" alt="Esquema Lógico" width="100%">
        <br>
        <b>Figura 2:</b> Esquema Lógico Relacional (MySQL)
     </td>
@@ -37,10 +37,12 @@ Paralelamente à modelação de dados, a arquitetura de segurança do sistema im
 
 ## Estrutura de Ficheiros
 
-Em termos de organização física, a arquitetura do repositório promove a modularidade e a escalabilidade, encontrando-se segmentada em dois diretórios principais, sendo estes os seguintes.
+Em termos de organização física, a arquitetura do repositório promove a modularidade e a escalabilidade, encontrando-se segmentada em três diretórios principais, sendo estes os seguintes.
 
 1. **`schema`**: Funciona como o núcleo estrutural, centralizando a definição de tabelas e restrições.
   
 2. **`logic`**: Integra a camada de lógica de negócio, abrangendo procedimentos armazenados, vistas, índices e o conjunto de interrogações necessárias para satisfazer os requisitos funcionais.
+
+3. **`docs`**: Contém a documentação de apoio do projeto, abrangendo diagramas (ER e Esquema Lógico), relatório do projeto e apresentação.
 
 Made with ❤️ by Diogo Azevedo, Bruno Magalhães, Simão Santos & Vera Almeida
