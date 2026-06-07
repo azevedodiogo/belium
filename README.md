@@ -26,15 +26,6 @@ The repository's physical layout was designed for modularity and scalability, pa
 
 Made with ❤️ by Diogo Azevedo, Bruno Magalhães, Simão Santos & Vera Almeida
 
-## Estrutura de Ficheiros - File Structure
-
-[PT] A arquitetura do repositório está organizada da seguinte forma:\
-[EN] The repository layout is structured as follows:
-
-* **`schema/`**: [PT] Criação da base de dados, tabelas e gestão de utilizadores. | [EN] Database creation, tables, and user privileges.
-* **`logic/`**: [PT] Procedimentos, triggers, índices, vistas e interrogações. | [EN] Stored procedures, triggers, indexes, views, and queries.
-* **`docs/`**: [PT] Diagramas conceituais/lógicos, apresentação e relatório do projeto. | [EN] Conceptual/logical diagrams, presentation, and project report.
-
 ## Diagramas - Diagrams
 
 ### Diagrama Entidade-Relacionamento (ER) - Entity-Relationship Diagram (ER)
