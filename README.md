@@ -1,48 +1,48 @@
 # BeLIUM Viagens
 
-Este repositório foi concebido para o projeto ‘BeLIUM Viagens’, desenvolvido no âmbito da unidade curricular “Base de Dados”, lecionada no segundo ano da Licenciatura em Engenharia Informática.  Trata-se de um projeto académico com um contexto de natureza fictícia.
+> 16/20
 
-O desígnio primordial deste sistema reside na centralização, organização e preservação do registo histórico das viagens e iniciativas pedagógicas promovidas pelo CeSIUM (Centro de Estudantes de Engenharia Informática da Universidade do Minho), uma vez que se identificou que, não obstante o vasto património de atividades realizadas por diversas gerações, a informação encontrava-se dispersa por canais informais, comprometendo a memória institucional e o planeamento estratégico. 
+## Português
 
-Nesse sentido, a solução surge como uma resposta estruturada para mitigar a fragmentação de dados, visando facilitar a tomada de decisão sobre destinos e orçamentos, otimizar recursos e criar um portfólio público que perpetue a cultura da comunidade académica e alumni.
+Este repositório destina-se ao projeto 'BeLIUM Viagens', desenvolvido no âmbito da unidade curricular “Base de Dados”. Esta plataforma foi concebida para a centralização, organização e preservação do registo histórico das viagens e iniciativas pedagógicas promovidas pelo CeSIUM (Centro de Estudantes de Engenharia Informática da Universidade do Minho), mitigando a fragmentação de dados e perpetuando a memória institucional do núcleo estudantil.
 
-## Arquitetura e Desenvolvimento
+Para materializar estes objetivos, o desenvolvimento da base de dados seguiu um ciclo de vida rigoroso. Iniciou-se com a modelação conceptual (Diagrama Entidade-Relacionamento) recorrendo ao *brModelo*, avançando posteriormente para o modelo lógico no *MySQL Workbench*. A estrutura foi refinada através de processos de normalização até à Terceira Forma Normal (3FN) para eliminar redundâncias e garantir a integridade dos dados, tendo as interrogações sido validadas teoricamente via Álgebra Relacional com a calculadora *RelaX*.
 
-Para materializar estes objetivos, a arquitetura do sistema foi meticulosamente desenhada em estrita conformidade com o ciclo de vida de desenvolvimento de uma base de dados, iniciando-se o processo com a modelação conceptual através da ferramenta _brModelo_ para a construção de Diagramas Entidade-Relacionamento (ER). Subsequentemente, na fase de modelação lógica efetuada no _MySQL Workbench_, a estrutura foi refinada através de processos rigorosos de normalização até à Terceira Forma Normal (3FN), garantindo a integridade referencial e a eliminação de redundâncias, ao passo que a validação teórica das interrogações foi assegurada via Álgebra Relacional com recurso à calculadora _RelaX_.
+A arquitetura de segurança do sistema implementa um controlo de acessos estruturado em três níveis de privilégios. O perfil de **Administração** detém autoridade máxima, sendo responsável pela supervisão técnica, gestão de credenciais e controlo financeiro de orçamentos e patrocínios. O perfil de **Sócio** opera ao nível de escrita, registando novas viagens, itinerários e feedback qualitativo. Por fim, o perfil de **Utilizador** restringe-se a consultas e interação social básica (reações), salvaguardando a integridade do sistema.
 
-<table border="0">
- <tr>
-    <td align="center" width="50%">
-       <img src="./docs/diagrams/er_diagram.png" alt="Diagrama ER" width="100%">
-       <br>
-       <b>Figura 1:</b> Diagrama Entidade-Relacionamento (ER)
-    </td>
-    <td align="center" width="50%">
-       <img src="./docs/diagrams/logical_schema.png" alt="Esquema Lógico" width="100%">
-       <br>
-       <b>Figura 2:</b> Esquema Lógico Relacional (MySQL)
-    </td>
- </tr>
-</table>
-
-## Gestão de Permissões
-
-Paralelamente à modelação de dados, a arquitetura de segurança do sistema implementa um modelo rigoroso de controlo de acessos, estruturado numa hierarquia de privilégios de três níveis, desenhada para assegurar a integridade dos dados e a correta segregação de funções. 
-
-| Perfil | Nível | Responsabilidades |
-| :--- | :--- | :--- |
-| **Administração** | Total | Autoridade máxima sobre a plataforma. Compete-lhes a supervisão técnica integral, gestão de credenciais, manutenção da base de dados e administração financeira (controlo de orçamentos e patrocínios). |
-| **Sócio** | Operacional | Membros ativos do núcleo. Detêm privilégios de escrita para alimentação do sistema, sendo responsáveis pelo registo de viagens, definição de itinerários, carregamento de fotos e feedback qualitativo. |
-| **Utilizador** | Consulta | Camada de acesso público. A interação restringe-se à visualização do catálogo de viagens e interação social básica (reações), garantindo a proteção da estrutura de dados contra modificações não autorizadas. |
-
-## Estrutura de Ficheiros
-
-Em termos de organização física, a arquitetura do repositório promove a modularidade e a escalabilidade, encontrando-se segmentada em três diretórios principais, sendo estes os seguintes.
-
-1. **`schema`**: Funciona como o núcleo estrutural, centralizando a definição de tabelas e restrições.
-  
-2. **`logic`**: Integra a camada de lógica de negócio, abrangendo procedimentos armazenados, vistas, índices e o conjunto de interrogações necessárias para satisfazer os requisitos funcionais.
-
-3. **`docs`**: Contém a documentação de apoio do projeto, abrangendo diagramas (ER e Esquema Lógico), relatório do projeto e apresentação.
+A organização física do repositório foi desenhada de forma modular e escalável, distribuindo a estrutura da base de dados em pastas específicas: a pasta `schema` centraliza a definição de tabelas e utilizadores, enquanto a pasta `logic` encapsula os procedimentos armazenados, triggers, vistas, índices e interrogações funcionais. A documentação do projeto, incluindo diagramas, apresentação e o relatório final, encontra-se organizada no diretório `docs`.
 
 Made with ❤️ by Diogo Azevedo, Bruno Magalhães, Simão Santos & Vera Almeida
+
+## English
+
+This repository is intended for the 'BeLIUM Viagens' project, developed as part of the academic course “Databases”. This platform was designed to centralize, organize, and preserve the historical records of trips and educational initiatives promoted by CeSIUM (Software Engineering Student Branch at the University of Minho), mitigating data fragmentation and safeguarding the student association's institutional memory.
+
+To achieve these objectives, the database development followed a rigorous lifecycle. It began with conceptual modeling (Entity-Relationship Diagram) using *brModelo*, followed by logical modeling in *MySQL Workbench*. The structure was refined through normalization processes up to the Third Normal Form (3FN) to eliminate redundancies and guarantee data integrity, with database queries theoretically validated via Relational Algebra using the *RelaX* calculator.
+
+The system's security architecture implements an access control model structured across three privilege levels. The **Administration** profile holds maximum authority, overseeing technical supervision, credential management, and financial control over budgets and sponsorships. The **Sócio** (Member) profile operates at the write level, recording new trips, itineraries, and qualitative feedback. Finally, the **Utilizador** (User) profile is restricted to read-only queries and basic social interactions (reactions), protecting the database's integrity.
+
+The repository's physical layout was designed for modularity and scalability, partitioning the database structure into dedicated folders: the `schema` folder centralizes table and user definitions, while the `logic` folder encapsulates stored procedures, triggers, views, indexes, and functional queries. Supporting project documentation, including diagrams, presentation, and the final report, is organized within the `docs` directory.
+
+Made with ❤️ by Diogo Azevedo, Bruno Magalhães, Simão Santos & Vera Almeida
+
+## Estrutura de Ficheiros - File Structure
+
+[PT] A arquitetura do repositório está organizada da seguinte forma:\
+[EN] The repository layout is structured as follows:
+
+* **`schema/`**: [PT] Criação da base de dados, tabelas e gestão de utilizadores. | [EN] Database creation, tables, and user privileges.
+* **`logic/`**: [PT] Procedimentos, triggers, índices, vistas e interrogações. | [EN] Stored procedures, triggers, indexes, views, and queries.
+* **`docs/`**: [PT] Diagramas conceituais/lógicos, apresentação e relatório do projeto. | [EN] Conceptual/logical diagrams, presentation, and project report.
+
+## Diagramas - Diagrams
+
+[PT] O diagrama de entidade-relacionamento (ER) e o esquema lógico relacional representam a modelação dos dados do sistema BeLIUM.
+
+[EN] The entity-relationship (ER) diagram and the logical relational schema represent the data modeling for the BeLIUM system.
+
+### Diagrama Entidade-Relacionamento (ER) - Entity-Relationship Diagram (ER)
+![Diagrama ER](docs/diagrams/er_diagram.png)
+
+### Esquema Lógico - Logical Schema
+![Esquema Lógico](docs/diagrams/logical_schema.png)
