@@ -26,29 +26,6 @@ The repository's physical layout was designed for modularity and scalability, pa
 
 Made with ❤️ by Diogo Azevedo, Bruno Magalhães, Simão Santos & Vera Almeida
 
-## Como Executar - How to Run
-
-### Instanciação da Base de Dados - Database Instantiation
-
-[PT] Pode instanciar e testar a base de dados utilizando o **MySQL Workbench** ou o cliente de terminal do MySQL. A execução deve seguir a ordem de dependências lógica para evitar erros de chave estrangeira ou integridade referencial:
-
-[EN] You can instantiate and test the database using **MySQL Workbench** or the MySQL terminal client. The execution must follow the logical dependency order to prevent foreign key or referential integrity errors:
-
-1. **Schema (Estrutura Básica - Basic Structure)**:
-   * `schema/database.sql`
-   * `schema/tables.sql`
-   * `schema/users.sql`
-2. **Logic (Lógica de Negócio - Business Logic)**:
-   * `logic/views.sql`
-   * `logic/functions.sql`
-   * `logic/triggers.sql`
-   * `logic/indexes.sql`
-   * `logic/prepared-statements.sql`
-   * `logic/other-procedures.sql`
-3. **Population (Preenchimento de Dados - Data Seeding)**:
-   * `logic/population/insersion-procedures.sql`
-   * `logic/population/population.sql`
-
 ## Estrutura de Ficheiros - File Structure
 
 [PT] A arquitetura do repositório está organizada da seguinte forma:\
@@ -71,3 +48,26 @@ Made with ❤️ by Diogo Azevedo, Bruno Magalhães, Simão Santos & Vera Almeid
 [EN] Developed using technologies such as *MySQL Workbench* to represent the relational model.
 
 ![Esquema Lógico](docs/diagrams/logical_schema.png)
+
+## Como Executar - How to Run
+
+### Instanciação da Base de Dados - Database Instantiation
+
+[PT] Pode instanciar e testar a base de dados utilizando o **MySQL Workbench** ou o cliente de terminal do MySQL. A execução deve seguir a ordem de dependências lógica para evitar erros de chave estrangeira ou integridade referencial:
+
+[EN] You can instantiate and test the database using **MySQL Workbench** or the MySQL terminal client. The execution must follow the logical dependency order to prevent foreign key or referential integrity errors:
+
+1. **Schema (Estrutura Básica - Basic Structure)**:
+   * `schema/database.sql`
+   * `schema/tables.sql`
+   * `schema/users.sql`
+2. **Logic (Lógica de Negócio - Business Logic)**:
+   * `logic/views.sql`
+   * `logic/functions.sql`
+   * `logic/triggers.sql`
+   * `logic/indexes.sql`
+   * `logic/prepared-statements.sql`
+   * `logic/other-procedures.sql`
+3. **Population (Preenchimento de Dados - Data Seeding)**:
+   * `logic/population/insersion-procedures.sql`
+   * `logic/population/population.sql`
